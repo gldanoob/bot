@@ -1,0 +1,17 @@
+from datetime import datetime
+import discord
+
+CHANNELS = {
+  "SERVER_STATUS": "811202082991505419"
+}
+
+USERS = {
+  "DAVID": "439257744566910988",
+  "MYSELF": "439052807790657557"
+}
+
+MAYOR = USERS["DAVID"]
+
+OP = [
+  USERS["DAVID"], USERS["MYSELF"]
+]
