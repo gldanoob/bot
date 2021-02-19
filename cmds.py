@@ -3,7 +3,7 @@ import discord
 import util
 import prefix
 import reddit
-import mc
+import ids
 
 groups = [
     "general", # 0
@@ -90,10 +90,11 @@ async def r(msg, subreddit=None, *_):
 async def serv(msg, status=None, offset=None, *_):
 
     # Only for server op
-    if str(msg.author.id) not in mc.OP:
+    if str(msg.author.id) not in ids.OP:
         return await msg.channel.send("FUCK OFF U AINT OP")
     
-    time = msg.created_at
+    # Trim off milliseconds and change timezone
+    time = msg.created_at.replace(microsecond=0) + timedelta(hours=8)
 
     # Output message depends on if offset time is specified
     on_msg = [
@@ -111,8 +112,9 @@ async def serv(msg, status=None, offset=None, *_):
 
     msg_index = 0
 
-    channel = util.get_channel(msg, mc.CHANNELS["SERVER_STATUS"])
+    channel = util.get_channel(msg, ids.CHANNELS["SERVER_STATUS"])
 
+    # Choose output message depending on time offset given
     if offset is not None:
         offset = int(offset)
         if offset > 0: msg_index = 1

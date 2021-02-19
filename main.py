@@ -9,7 +9,7 @@ import cmds
 import util
 import prefix
 import server
-
+import ids
 
 
 # Env tokens
@@ -37,7 +37,8 @@ async def on_ready():
     guild = discord.utils.get(client.guilds, id=int(GUILD))
     print(f'Main guild: {guild.name}')
 
-
+    # Nick the bot
+    await guild.get_member(int(ids.USERS["ME"])).edit(nick="$9 yr old$")
 
     # Display connected guilds
     print('-' * 50)
@@ -67,23 +68,24 @@ async def on_message(msg):
 
         # Get the corresponding cmd function from cmds, run it
         cmd_func = getattr(cmds, cmd, default)
-        await cmd_func(msg, *args)
-        
+
+        try:
+            await cmd_func(msg, *args)
+        except Exception as err:
+            await msg.channel.send("FUK I ERRORED\n<@439052807790657557> ONII CHAN FIX ME\n```" + str(err) + "```")
+
+
 def run_serv():
     server.app.run(
         host='0.0.0.0',
         port='3000'
     )
 
+
 def run_bot():
     client.run(TOKEN)
 
+
 if __name__ == "__main__":
-    Thread(target = run_serv).start()
+    Thread(target=run_serv).start()
     run_bot()
-
-
-
-
-
-
