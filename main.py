@@ -72,7 +72,7 @@ async def on_message(msg):
         try:
             await cmd_func(msg, *args)
         except Exception as err:
-            await msg.channel.send("FUK I ERRORED\n<@439052807790657557> ONII CHAN FIX ME\n```" + str(err) + "```")
+            await msg.channel.send("<@439052807790657557>　つ…　つっかえた　おっ、お兄ちゃん～～\n助けて～～～:heart:```" + str(err) + "```")
 
 
 def run_serv():
