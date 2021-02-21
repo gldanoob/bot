@@ -85,6 +85,12 @@ async def r(msg, subreddit=None, *_):
     else:
         await msg.channel.send("go succ ur own blacc dicc")
 
+# $horny
+@Cmd("Use this if you're too horny", "", 0)
+async def horny(msg, *_):
+    await msg.channel.send("<@" + str(msg.author.id) + "> おっ... \nおにいっ... お兄ちゃん～:heart:", 
+    file=discord.File('assests/stare.jpg'))
+
 # $serv
 @Cmd('Changes MC server status (reserved for server op)', ' [on|off] (offset in mins)', 1)
 async def serv(msg, status=None, offset=None, *_):
