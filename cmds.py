@@ -43,7 +43,7 @@ async def help(msg, *_):
 
     # Create Discord embed
     embed = discord.Embed(
-        title="Help", description="can u just shut the fuck up", color=0x05ffe2)
+        title="Help", description="", color=0x05ffe2)
 
     # Loop through each command, add the corresponding description + usage into the embed
     for i in cmds_dict:
@@ -83,7 +83,7 @@ async def r(msg, subreddit=None, *_):
                 break
 
     else:
-        await msg.channel.send("go succ ur own blacc dicc")
+        await msg.channel.send("お兄ちゃん、i cant find the subreddit")
 
 # $horny
 @Cmd("Use this if you're too horny", "", 0)
@@ -97,7 +97,7 @@ async def serv(msg, status=None, offset=None, *_):
 
     # Only for server op
     if str(msg.author.id) not in ids.OP:
-        return await msg.channel.send("お兄ちゃんじゃないの？")
+        return await msg.channel.send("お兄ちゃんじゃない...の？")
     
     # Trim off milliseconds and change timezone
     time = msg.created_at.replace(microsecond=0) + timedelta(hours=8)
