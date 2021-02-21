@@ -64,7 +64,7 @@ async def on_message(msg):
 
         # If command not found
         async def default(*_):
-            await msg.channel.send("u blacc nigga no command matched")
+            await msg.channel.send("お兄ちゃん、それが教えなかった？？")
 
         # Get the corresponding cmd function from cmds, run it
         cmd_func = getattr(cmds, cmd, default)

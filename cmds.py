@@ -97,7 +97,7 @@ async def serv(msg, status=None, offset=None, *_):
 
     # Only for server op
     if str(msg.author.id) not in ids.OP:
-        return await msg.channel.send("FUCK OFF U AINT OP")
+        return await msg.channel.send("お兄ちゃんじゃないの？")
     
     # Trim off milliseconds and change timezone
     time = msg.created_at.replace(microsecond=0) + timedelta(hours=8)
