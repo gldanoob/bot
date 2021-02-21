@@ -89,7 +89,7 @@ async def r(msg, subreddit=None, *_):
 @Cmd("Use this if you're too horny", "", 0)
 async def horny(msg, *_):
     await msg.channel.send("<@" + str(msg.author.id) + "> おっ... \nおにいっ... お兄ちゃん～:heart:", 
-    file=discord.File('assests/confused.jpg'))
+    file=discord.File('assets/confused.png'))
 
 # $serv
 @Cmd('Changes MC server status (reserved for server op)', ' [on|off] (offset in mins)', 1)
