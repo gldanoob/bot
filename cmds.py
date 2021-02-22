@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+from threading import Timer
 import discord
 import util
 import prefix
@@ -122,12 +123,15 @@ async def serv(msg, status=None, offset=None, *_):
 
     # Choose output message depending on time offset given
     if offset is not None:
-        offset = int(offset)
+        offset = float(offset)
         if offset > 0: msg_index = 1
         elif offset < 0: msg_index = 2
 
-        offset = timedelta(minutes=offset)
-        time += offset
+        offset_time = timedelta(seconds=offset*60)
+        time += offset_time
+    else: offset = 0
+
+
 
     if status == "on":
         await channel.send(f'{on_msg[msg_index]} {chr(10)}Time: {time}')
